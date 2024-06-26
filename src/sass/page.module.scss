@@ -140,15 +140,15 @@
   }
 
   .videoIcon {
-    background-image: url('/icons/white/video.png');
+    background-image: url('/images/icons/white/video.png');
   }
 
   .phoneIcon {
-    background-image: url('/icons/white/phone.png');
+    background-image: url('/images/icons/white/phone.png');
   }
 
   .arrowIcon {
-    background-image: url('/icons/white/arrow.png');
+    background-image: url('/images/icons/white/arrow.png');
   }
 
   &:hover {
@@ -156,15 +156,15 @@
     color: var(--color-blue);
 
     .videoIcon {
-      background-image: url('/icons/blue/video.png');
+      background-image: url('/images/icons/blue/video.png');
     }
 
     .phoneIcon {
-      background-image: url('/icons/blue/phone.png');
+      background-image: url('/images/icons/blue/phone.png');
     }
 
     .arrowIcon {
-      background-image: url('/icons/blue/arrow.png');
+      background-image: url('/images/icons/blue/arrow.png');
     }
   }
 }
@@ -220,19 +220,19 @@
     }
 
     .descriptionIcon {
-      background-image: url('/icons/white/note.png');
+      background-image: url('/images/icons/white/note.png');
     }
 
     .specificationIcon {
-      background-image: url('/icons/white/specyfication.png');
+      background-image: url('/images/icons/white/specyfication.png');
     }
 
     .bulbIcon {
-      background-image: url('/icons/white/bulb.png');
+      background-image: url('/images/icons/white/bulb.png');
     }
 
     .helpIcon {
-      background-image: url('/icons/white/help.png');
+      background-image: url('/images/icons/white/help.png');
     }
 
     &.tileActive {
@@ -240,19 +240,19 @@
       color: var(--color-blue);
 
       .descriptionIcon {
-        background-image: url('/icons/blue/note.png');
+        background-image: url('/images/icons/blue/note.png');
       }
 
       .specificationIcon {
-        background-image: url('/icons/blue/specyfication.png');
+        background-image: url('/images/icons/blue/specyfication.png');
       }
 
       .bulbIcon {
-        background-image: url('/icons/blue/bulb.png');
+        background-image: url('/images/icons/blue/bulb.png');
       }
 
       .helpIcon {
-        background-image: url('/icons/blue/help.png');
+        background-image: url('/images/icons/blue/help.png');
       }
     }
   }
@@ -451,19 +451,19 @@
     }
 
     .phoneIcon {
-      background-image: url('/icons/blue/phone_fill.png');
+      background-image: url('/images/icons/blue/phone_fill.png');
     }
 
     .mailIcon {
-      background-image: url('/icons/blue/mail.png');
+      background-image: url('/images/icons/blue/mail.png');
     }
 
     .websiteIcon {
-      background-image: url('/icons/blue/website.png');
+      background-image: url('/images/icons/blue/website.png');
     }
 
     .clockIcon {
-      background-image: url('/icons/blue/clock.png');
+      background-image: url('/images/icons/blue/clock.png');
     }
 
   }
@@ -565,11 +565,11 @@
 
 // Icons Section
 .labelIcon {
-  background-image: url('/icons/blue/tags.png');
+  background-image: url('/images/icons/blue/tags.png');
 }
 
 .feedbackStarIcon {
-  background-image: url('/icons/blue/star.png');
+  background-image: url('/images/icons/blue/star.png');
 }
 
 @media(max-width: 760px) {

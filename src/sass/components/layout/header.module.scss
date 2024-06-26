@@ -17,11 +17,11 @@
 
         .hamburgerMenu {
             display: block;
-            background-image: url("/icons/white/menu.png");
+            background-image: url("/images/icons/white/menu.png");
             cursor: pointer;
 
             &:hover {
-                background-image: url("/icons/blue/menu.png");
+                background-image: url("/images/icons/blue/menu.png");
             }
         }
     }
@@ -84,6 +84,6 @@
 
 // Navigation Icons
 .closeMenu {
-    background-image: url("/icons/white/close.png");
+    background-image: url("/images/icons/white/close.png");
     cursor: pointer;
 }
