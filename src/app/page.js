@@ -458,7 +458,22 @@ function PricingSection() {
 }
 
 function ContactFormSection() {
-  const [showSection, setShowSection] = useState(0);
+  const [formStatus, setFormStatus] = useState("Wyślij");
+
+  async function submitForm(e) {
+    e.preventDefault();
+    setFormStatus("Wysyłanie...");
+    const formData = new FormData(e.target);
+    const response = await fetch("/api/send-form", {
+      method: "POST",
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+    const result = await response.json();
+    setFormStatus(result.message);
+  }
 
   return (
     <section className={styles.section}>
@@ -469,7 +484,7 @@ function ContactFormSection() {
         <Link href="https://www.skanowanie.pl" className={styles.contactDetailsLink}><span className={`icon ${styles.websiteIcon}`} />www.skanowanie.pl</Link>
         <p className={styles.contactDetailsLink}><span className={`icon ${styles.clockIcon}`} />Pon - Pt <br />09:00 - 16:00</p>
       </div>
-      <form className={styles.contactFormSection}>
+      <form className={styles.contactFormSection} onSubmit={submitForm}>
         <div className={styles.row}>
           <label className={styles.inputLabel} htmlFor="name">
             <p>Imię <span className={styles.required}>*</span></p>
@@ -506,7 +521,7 @@ function ContactFormSection() {
           <input type="checkbox" id="marketing" name="marketing" />
           <p>Akceptuję <Link href="/rodo">Zgody Marketingowe</Link></p>
         </label>
-        <button type="submit">Wyślij</button>
+        <button type="submit">{formStatus}</button>
       </form>
     </section>
   )
