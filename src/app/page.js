@@ -33,19 +33,21 @@ export default function HomePage() {
         <div className={styles.leftCol}>
           <div className={styles.sectionsHolder} ref={sliderRefLeftCol} id="sliderRefLeftCol" >
             {/* SECTION - FIRST SLIDE CONTENT */}
-            <HeroSection sliderRefLeftCol={sliderRefLeftCol} />
+            <HeroSection sliderRefLeftCol={sliderRefLeftCol} sliderRefRightCol={sliderRefRightCol} />
             {/* SECTION - SECOND SLIDE CONTENT */}
-            <FeaturesSection sliderRefLeftCol={sliderRefLeftCol} />
+            <FeaturesSection sliderRefLeftCol={sliderRefLeftCol} sliderRefRightCol={sliderRefRightCol} />
             {/* SECTION - THIRD SLIDE CONTENT */}
-            <PickerSection sliderRefLeftCol={sliderRefLeftCol} />
+            <PickerSection />
             {/* SECTION - FOURTH SLIDE CONTENT */}
-            <VideoSection sliderRefLeftCol={sliderRefLeftCol} />
+            <VideoSection />
             {/* SECTION - FIFTH SLIDE CONTENT */}
-            <ClientFeedbackSection sliderRefLeftCol={sliderRefLeftCol} />
+            <ClientFeedbackSection />
             {/* SECTION - SIXTH SLIDE CONTENT */}
             <PhotosSection />
             {/* SECTION - SEVENTH SLIDE CONTENT */}
             <PricingSection />
+            {/* SECTION - EIGHTH SLIDE CONTENT */}
+            <ContactFormSection />
           </div>
         </div>
         <div className={styles.rightCol}>
@@ -87,23 +89,25 @@ export default function HomePage() {
               <section className={styles.imgSection}>
                 <p>Zdjęcie 7</p>
               </section>
+              {/* SECTION - EIGHTH SLIDE IMG */}
+              <section className={styles.imgSection}>
+                <p>Zdjęcie 8</p>
+              </section>
             </div>
           </div>
         </div>
-
       </div>
-
     </main>
   );
 }
 
 // 1st Section
-function HeroSection({ sliderRefLeftCol }) {
+function HeroSection({ sliderRefLeftCol, sliderRefRightCol }) {
   return (
     <section className={styles.section}>
       <h1 className={styles.sectionTitle}>Skanowanie Strukturalne</h1>
       <p className={styles.sectionText}>Nasza technologia pozwoli na uzyskanie odwzorowania trójwymiarowych obiektów zamiast płaskich zdjęć - nowość na polskim rynku - skan 3D (strukturalny). Plik uwydatnia całą strukturę przedmiotu skanowanego.</p>
-      <button className={styles.sectionButton} onClick={() => goToSlide(sliderRefLeftCol, 1)}>
+      <button className={styles.sectionButton} onClick={() => { goToSlide(sliderRefLeftCol, 3); goToSlide(sliderRefRightCol, 3) }}>
         <span className={`icon ${styles.videoIcon}`} />Pokaż Film
       </button>
       <div className={styles.marginBottom} />
@@ -112,7 +116,7 @@ function HeroSection({ sliderRefLeftCol }) {
 }
 
 // 2nd Section
-function FeaturesSection({ sliderRefLeftCol }) {
+function FeaturesSection({ sliderRefLeftCol, sliderRefRightCol }) {
   return (
     <section className={styles.section}>
       <h2 className={styles.sectionTitle}>Co Skanujemy?</h2>
@@ -125,7 +129,7 @@ function FeaturesSection({ sliderRefLeftCol }) {
         <div className={styles.feature}><span className={`icon ${styles.labelIcon}`} /><p>Kamień</p></div>
         <div className={styles.feature}><span className={`icon ${styles.labelIcon}`} /><p>Materiał</p></div>
       </div>
-      <button className={styles.sectionButton} onClick={() => goToSlide(sliderRefLeftCol, 0)}>
+      <button className={styles.sectionButton} onClick={() => { goToSlide(sliderRefLeftCol, 7); goToSlide(sliderRefRightCol, 7) }}>
         <span className={`icon ${styles.phoneIcon}`} />Skontaktuj się z nami
       </button>
       <div className={styles.marginBottom} />
@@ -387,7 +391,7 @@ function PricingSection() {
               <tr className={styles.tableRow}>
                 <td>Skanowanie Płaskie</td>
                 <td>100 zł</td>
-                <td>250 zł</td>
+                <td>150 zł</td>
                 <td>300 zł</td>
                 <td>1500 zł</td>
               </tr>
@@ -449,6 +453,61 @@ function PricingSection() {
         )}
 
       </div>
+    </section>
+  )
+}
+
+function ContactFormSection() {
+  const [showSection, setShowSection] = useState(0);
+
+  return (
+    <section className={styles.section}>
+      <h2 className={styles.sectionTitle}>Skontaktuj się</h2>
+      <div className={styles.contactDetails}>
+        <Link href="tel:+48 22 716 28 58" className={styles.contactDetailsLink}><span className={`icon ${styles.phoneIcon}`} />+48 22 716 28 58</Link>
+        <Link href="mailto:info@skanowanie.pl" className={styles.contactDetailsLink}><span className={`icon ${styles.mailIcon}`} />info@skanowanie.pl</Link>
+        <Link href="https://www.skanowanie.pl" className={styles.contactDetailsLink}><span className={`icon ${styles.websiteIcon}`} />www.skanowanie.pl</Link>
+        <p className={styles.contactDetailsLink}><span className={`icon ${styles.clockIcon}`} />Pon - Pt <br />09:00 - 16:00</p>
+      </div>
+      <form className={styles.contactFormSection}>
+        <div className={styles.row}>
+          <label className={styles.inputLabel} htmlFor="name">
+            <p>Imię <span className={styles.required}>*</span></p>
+            <input type="text" id="name" name="name" required />
+          </label>
+          <label className={styles.inputLabel} htmlFor="surname">
+            <p>Nazwisko</p>
+            <input type="text" id="surname" name="surname" />
+          </label>
+        </div>
+        <div className={styles.row}>
+          <label className={styles.inputLabel} htmlFor="phone">
+            <p>Telefon <span className={styles.required}>*</span></p>
+            <input type="tel" id="phone" name="phone" required />
+          </label>
+          <label className={styles.inputLabel} htmlFor="mail">
+            <p>Mail <span className={styles.required}>*</span></p>
+            <input type="email" id="mail" name="mail" required />
+          </label>
+        </div>
+        <label className={styles.inputLabel} htmlFor="company">
+          <p>Firma</p>
+          <input type="text" id="company" name="company" />
+        </label>
+        <label className={styles.inputLabel} htmlFor="message">
+          <p>Wiadomość <span className={styles.required}>*</span></p>
+          <textarea id="message" name="message" required />
+        </label>
+        <label className={styles.checkboxLabel} htmlFor="rodo">
+          <input type="checkbox" id="rodo" name="rodo" required />
+          <p>Wyrażam zgode na przetwarzanie danych osobowych zgodnie z <Link href="/rodo">RODO</Link> <span className={styles.required}>*</span></p>
+        </label>
+        <label className={styles.checkboxLabel} htmlFor="marketing">
+          <input type="checkbox" id="marketing" name="marketing" />
+          <p>Akceptuję <Link href="/rodo">Zgody Marketingowe</Link></p>
+        </label>
+        <button type="submit">Wyślij</button>
+      </form>
     </section>
   )
 }

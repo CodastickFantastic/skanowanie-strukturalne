@@ -418,6 +418,149 @@
   }
 }
 
+.contactDetails {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 12px;
+  row-gap: 16px;
+  margin-bottom: 24px;
+
+  .contactDetailsLink {
+    min-width: 200px;
+    display: flex;
+    align-items: center;
+    column-gap: 6px;
+    font-family: var(--font-open-sans);
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: .5px;
+    text-align: left;
+    text-decoration: none;
+    font-family: var(--font-open-sans);
+    color: var(--color-white);
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &>span {
+      width: 22px;
+      height: 22px;
+      margin-right: 6px;
+    }
+
+    .phoneIcon {
+      background-image: url('/icons/blue/phone_fill.png');
+    }
+
+    .mailIcon {
+      background-image: url('/icons/blue/mail.png');
+    }
+
+    .websiteIcon {
+      background-image: url('/icons/blue/website.png');
+    }
+
+    .clockIcon {
+      background-image: url('/icons/blue/clock.png');
+    }
+
+  }
+}
+
+.contactFormSection {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0 2px;
+
+  .required {
+    color: var(--color-blue);
+  }
+
+  .inputLabel {
+    width: 100%;
+
+    p {
+      margin-bottom: 3px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 4px 6px;
+      border-radius: 2px;
+      border: none;
+      margin-bottom: 12px;
+      background-color: hsla(0, 0%, 100%, 0.1);
+      color: var(--color-white);
+    }
+
+    textarea {
+      height: 80px;
+    }
+  }
+
+  .checkboxLabel {
+    display: flex;
+    align-items: center;
+    column-gap: 6px;
+    font-family: var(--font-open-sans);
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: .5px;
+    text-align: left;
+    margin-bottom: 12px;
+
+    a {
+      text-decoration: none;
+      color: var(--color-blue);
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+
+  .row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 12px;
+    row-gap: 12px;
+    width: 100%;
+
+    &>label {
+      min-width: 40%;
+      flex: 1;
+    }
+  }
+
+  button {
+    width: 100%;
+    padding: 6px 12px;
+    border-radius: 4px;
+    background-color: var(--color-blue);
+    color: var(--color-white);
+    border: 1px solid var(--color-blue);
+    font-family: var(--font-open-sans);
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: .5px;
+    text-align: center;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--color-white);
+      color: var(--color-blue);
+    }
+  }
+
+
+}
+
 
 
 // Icons Section
@@ -440,6 +583,10 @@
         .sectionsHolder {
           .section {
             align-items: center;
+
+            .marginBottom {
+              display: none;
+            }
           }
         }
       }
@@ -450,12 +597,82 @@
     }
   }
 
-  .sectionTitle{
-    // font-size: 24px;
+  .sectionTitle {
+    font-size: 36px;
     text-align: center;
   }
 
-  .sectionText{
+  .sectionText {
     text-align: center;
+  }
+
+  .featuresHolder {
+    align-items: center;
+  }
+
+  .sectionPickerTop {
+    flex-wrap: wrap;
+    row-gap: 12px;
+    column-gap: 12px;
+
+    .tile {
+      flex: 1;
+      margin: 0;
+      justify-content: center;
+    }
+  }
+
+  .photosSection {
+    .mainPhoto {
+      height: 240px;
+    }
+
+    .photoContainer {
+      .photo {
+        width: 30%;
+      }
+    }
+  }
+
+  .pricingSection {
+    table {
+      tr {
+        td {
+          font-size: 13px;
+          border-right: 1px solid hsla(0, 0%, 100%, 0.1);
+          // &:first-of-type {
+          //   width: 90px;
+          // }
+
+          &:nth-of-type(2),
+          &:nth-of-type(3) {
+            min-width: 46px;
+          }
+
+          // &:nth-of-type(4), 
+          // &:nth-of-type(5) {
+          //   width: 80px;
+          // }
+        }
+      }
+    }
+  }
+
+  .contactDetails {
+    column-gap: 6px;
+    row-gap: 12px;
+    margin-bottom: 12px;
+
+    .contactDetailsLink {
+      min-width: unset;
+      font-size: 12px;
+      flex: 1;
+    }
+  }
+
+  .contactFormSection {
+    textarea {
+      height: 60px !important;
+    }
   }
 }
