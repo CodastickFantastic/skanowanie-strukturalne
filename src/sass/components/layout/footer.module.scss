@@ -1,0 +1,24 @@
+.footer {
+    width: 100%;
+    padding: 6px 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    p {
+        font-family: var(--font-open-sans);
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: .5px;
+        line-height: 20px;
+        text-align: left;
+
+        a {
+            color: var(--color-blue);
+        }
+
+        @media(max-width: 760px) {
+            text-align: center;
+        }
+    }
+}

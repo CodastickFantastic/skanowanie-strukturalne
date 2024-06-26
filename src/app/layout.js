@@ -1,3 +1,4 @@
+import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 import "@/sass/globals.scss";
 import { Inter } from "next/font/google";
@@ -24,6 +25,7 @@ export default function RootLayout({ children }) {
       <body className={`${nunito.variable} ${openSans.variable}`}>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
