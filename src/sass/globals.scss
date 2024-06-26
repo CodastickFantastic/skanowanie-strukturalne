@@ -1,6 +1,7 @@
 :root {
   --color-white: #fff;
   --color-blue: #0070f3;
+  --color-dark-blue: #002b5c;
 }
 
 * {
@@ -43,7 +44,7 @@ body {
 //   // font-family: var(--font-open-sans);
 // }
 
-p{
+p {
   font-family: var(--font-open-sans);
   color: var(--color-white);
   font-weight: 400;

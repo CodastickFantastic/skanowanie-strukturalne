@@ -26,7 +26,7 @@ export default function useTouchEvents() {
 }
 
 function changeSlideTouchLeftCol(direction, sliderRefLeftCol) {
-    const scrollBy = window.innerHeight
+    const scrollBy = sliderRefLeftCol.current.clientHeight
     const maxTopPosition = -sliderRefLeftCol.current.scrollHeight + window.innerHeight;
     let currentTopPosition = sliderRefLeftCol.current.style.top || 0
 
