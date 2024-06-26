@@ -1,9 +1,30 @@
 .header {
     position: relative;
+    z-index: 2;
     width: 100%;
-    padding: 3px 0;
+    padding: 12px 0;
+
+    &>div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .logo {
+            font-size: 24px;
+        }
 
 
+
+        .hamburgerMenu {
+            display: block;
+            background-image: url("/icons/white/menu.png");
+            cursor: pointer;
+
+            &:hover {
+                background-image: url("/icons/blue/menu.png");
+            }
+        }
+    }
 }
 
 .sidebarMenu {
@@ -13,8 +34,9 @@
     z-index: 999;
     height: 100dvh;
     width: 240px;
-    padding: 12px 16px;
+    padding: 12px 0;
     background: var(--color-blue);
+    transition: .2s linear;
 
     &.show {
         left: 0;
@@ -25,25 +47,34 @@
         align-items: center;
         justify-content: space-between;
         margin-bottom: 24px;
+        padding: 40%;
     }
 
     .links {
         display: flex;
         flex-direction: column;
+        // row-gap: 24px;
 
-        a {
+        p {
             text-decoration: none;
             display: flex;
             align-items: center;
-            margin-bottom: 12px;
             font-family: var(--font-open-sans);
             font-size: 14px;
             color: var(--color-white);
+            padding: 12px 24px;
+            user-select: none;
+            cursor: pointer;
+
 
             span {
                 width: 24px;
                 height: 24px;
                 margin-right: 12px;
+            }
+
+            &:hover {
+                background-color: var(--color-dark-blue);
             }
         }
     }
@@ -52,19 +83,6 @@
 }
 
 // Navigation Icons
-
-.hamburgerMenu {
-    position: absolute;
-    top: 3px;
-    left: 12px;
-    background-image: url("/icons/white/menu.png");
-    cursor: pointer;
-
-    &:hover {
-        background-image: url("/icons/blue/menu.png");
-    }
-}
-
 .closeMenu {
     background-image: url("/icons/white/close.png");
     cursor: pointer;
