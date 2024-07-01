@@ -36,14 +36,14 @@ function SideBarMenu({ showSidebar, setShowSidebar }) {
                 <Image src="/logo.png" alt="logo" width={300} height={300} />
             </div>
             <div className={styles.links}>
-                <p onClick={() => { goToSlide(sliderRefLeftCol, 0, true); goToSlide(sliderRefRightCol, 0, true); setShowSidebar(!showSidebar) }}><span className={`icon ${styles.closeMenu}`} />Home</p>
-                <p onClick={() => { goToSlide(sliderRefLeftCol, 1, true); goToSlide(sliderRefRightCol, 1, true); setShowSidebar(!showSidebar) }}><span className={`icon ${styles.closeMenu}`} />Co skanujemy?</p>
-                <p onClick={() => { goToSlide(sliderRefLeftCol, 2, true); goToSlide(sliderRefRightCol, 2, true); setShowSidebar(!showSidebar) }}><span className={`icon ${styles.closeMenu}`} />O skanerze Metis</p>
-                <p onClick={() => { goToSlide(sliderRefLeftCol, 3, true); goToSlide(sliderRefRightCol, 3, true); setShowSidebar(!showSidebar) }}><span className={`icon ${styles.closeMenu}`} />Zobacz nas w akcji</p>
-                <p onClick={() => { goToSlide(sliderRefLeftCol, 4, true); goToSlide(sliderRefRightCol, 4, true); setShowSidebar(!showSidebar) }}><span className={`icon ${styles.closeMenu}`} />Opinie klientów</p>
+                <p onClick={() => { goToSlide(sliderRefLeftCol, 0, true); goToSlide(sliderRefRightCol, 0, true); setShowSidebar(!showSidebar) }}><span className={`icon ${styles.homeIcon}`} />Home</p>
+                <p onClick={() => { goToSlide(sliderRefLeftCol, 1, true); goToSlide(sliderRefRightCol, 1, true); setShowSidebar(!showSidebar) }}><span className={`icon ${styles.whatIcon}`} />Co skanujemy?</p>
+                <p onClick={() => { goToSlide(sliderRefLeftCol, 2, true); goToSlide(sliderRefRightCol, 2, true); setShowSidebar(!showSidebar) }}><span className={`icon ${styles.mIcon}`} />O skanerze Metis</p>
+                <p onClick={() => { goToSlide(sliderRefLeftCol, 3, true); goToSlide(sliderRefRightCol, 3, true); setShowSidebar(!showSidebar) }}><span className={`icon ${styles.seeIcon}`} />Zobacz nas w akcji</p>
+                <p onClick={() => { goToSlide(sliderRefLeftCol, 4, true); goToSlide(sliderRefRightCol, 4, true); setShowSidebar(!showSidebar) }}><span className={`icon ${styles.reviewsIcon}`} />Opinie klientów</p>
                 {/* <p onClick={() => { goToSlide(sliderRefLeftCol, 5, true); goToSlide(sliderRefRightCol, 5, true); setShowSidebar(!showSidebar) }}><span className={`icon ${styles.closeMenu}`} />Galeria skanów</p> */}
-                <p onClick={() => { goToSlide(sliderRefLeftCol, 6, true); goToSlide(sliderRefRightCol, 6, true); setShowSidebar(!showSidebar) }}><span className={`icon ${styles.closeMenu}`} />Cennik Skanowania</p>
-                <p onClick={() => { goToSlide(sliderRefLeftCol, 7, true); goToSlide(sliderRefRightCol, 7, true); setShowSidebar(!showSidebar) }}><span className={`icon ${styles.closeMenu}`} />Kontakt</p>
+                <p onClick={() => { goToSlide(sliderRefLeftCol, 6, true); goToSlide(sliderRefRightCol, 6, true); setShowSidebar(!showSidebar) }}><span className={`icon ${styles.priceIcon}`} />Cennik Skanowania</p>
+                <p onClick={() => { goToSlide(sliderRefLeftCol, 7, true); goToSlide(sliderRefRightCol, 7, true); setShowSidebar(!showSidebar) }}><span className={`icon ${styles.phoneIcon}`} />Kontakt</p>
             </div>
         </nav>
     )

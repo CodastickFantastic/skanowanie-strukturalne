@@ -82,7 +82,7 @@
             }
 
             &:hover {
-                background-color: var(--color-dark-blue);
+                color: var(--color-blue);
             }
         }
     }
@@ -93,5 +93,40 @@
 // Navigation Icons
 .closeMenu {
     background-image: url("/images/icons/white/close.png");
+    cursor: pointer;
+}
+
+.homeIcon {
+    background-image: url("/images/icons/red/home.png");
+    cursor: pointer;
+}
+
+.whatIcon {
+    background-image: url("/images/icons/red/what.png");
+    cursor: pointer;
+}
+
+.mIcon {
+    background-image: url("/images/icons/red/m.png");
+    cursor: pointer;
+}
+
+.seeIcon {
+    background-image: url("/images/icons/red/see.png");
+    cursor: pointer;
+}
+
+.reviewsIcon {
+    background-image: url("/images/icons/red/reviews.png");
+    cursor: pointer;
+}
+
+.priceIcon {
+    background-image: url("/images/icons/red/price.png");
+    cursor: pointer;
+}
+
+.phoneIcon {
+    background-image: url("/images/icons/red/phone.png");
     cursor: pointer;
 }

@@ -130,12 +130,12 @@ function FeaturesSection({ sliderRefLeftCol, sliderRefRightCol }) {
       <h2 className={styles.sectionTitle}>Co Skanujemy?</h2>
       <p className={styles.sectionText}>Dzięki wykorzystaniu najnowszej technologii jesteśmy w stanie dokonać skanowania strukturalnego niemalże każdej powierzchni. Skonktaktuj się z nami by poznać szczegóły.</p>
       <div className={styles.featuresHolder}>
-        <div className={styles.feature}><span className={`icon ${styles.labelIcon}`} /><p>Obrazy w ramie lub bez</p></div>
-        <div className={styles.feature}><span className={`icon ${styles.labelIcon}`} /><p>Plakaty</p></div>
-        <div className={styles.feature}><span className={`icon ${styles.labelIcon}`} /><p>Drewno</p></div>
-        <div className={styles.feature}><span className={`icon ${styles.labelIcon}`} /><p>Płytki ceramiczne</p></div>
-        <div className={styles.feature}><span className={`icon ${styles.labelIcon}`} /><p>Kamień</p></div>
-        <div className={styles.feature}><span className={`icon ${styles.labelIcon}`} /><p>Materiał</p></div>
+        <div className={styles.feature}><span className={`icon ${styles.paintingIcon}`} /><p>Obrazy w ramie lub bez</p></div>
+        <div className={styles.feature}><span className={`icon ${styles.posterIcon}`} /><p>Plakaty</p></div>
+        <div className={styles.feature}><span className={`icon ${styles.woodIcon}`} /><p>Drewno</p></div>
+        <div className={styles.feature}><span className={`icon ${styles.tileIcon}`} /><p>Płytki ceramiczne</p></div>
+        <div className={styles.feature}><span className={`icon ${styles.rockIcon}`} /><p>Kamień</p></div>
+        <div className={styles.feature}><span className={`icon ${styles.fabricIcon}`} /><p>Materiał</p></div>
       </div>
       <button className={styles.sectionButton} onClick={() => { goToSlide(sliderRefLeftCol, 7); goToSlide(sliderRefRightCol, 7) }}>
         <span className={`icon ${styles.phoneIcon}`} />Skontaktuj się z nami
