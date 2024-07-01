@@ -20,7 +20,9 @@ export default function Header() {
             <SideBarMenu showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
             <header className={styles.header}>
                 <div className="container">
-                    <Image src="/logo.png" className={styles.logo} width={300} height={300}></Image>
+                    <a href="https://skanowanie.pl" target="_blank">
+                        <Image src="/logo.png" className={styles.logo} width={300} height={300}></Image>
+                    </a>
                     <span className={`icon ${styles.hamburgerMenu}`} onClick={() => setShowSidebar(!showSidebar)} />
                 </div>
             </header>
