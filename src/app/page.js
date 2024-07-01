@@ -43,7 +43,7 @@ export default function HomePage() {
             {/* SECTION - FIFTH SLIDE CONTENT */}
             <ClientFeedbackSection />
             {/* SECTION - SIXTH SLIDE CONTENT */}
-            <PhotosSection />
+            {/* <PhotosSection /> */}
             {/* SECTION - SEVENTH SLIDE CONTENT */}
             <PricingSection />
             {/* SECTION - EIGHTH SLIDE CONTENT */}
@@ -63,15 +63,21 @@ export default function HomePage() {
             <div className={styles.imgSectionTruck} ref={sliderRefRightCol} id="sliderRefRightCol">
               {/* SECTION - FIRST SLIDE IMG */}
               <section className={styles.imgSection}>
-                <p>Zdjęcie 1</p>
+                <video autoPlay loop muted playsInline>
+                  <source src="/video/wynik-z-metisa.webm" type="video/webm" />
+                </video>
               </section>
               {/* SECTION - SECOND SLIDE IMG */}
               <section className={styles.imgSection}>
-                <p>Zdjęcie 2</p>
+                <video autoPlay loop muted playsInline>
+                  <source src="/video/co-skanujemy.webm" type="video/webm" />
+                </video>
               </section>
               {/* SECTION - THIRD SLIDE IMG */}
               <section className={styles.imgSection}>
-                <p>Zdjęcie 3</p>
+                <video autoPlay loop muted playsInline>
+                  <source src="/video/o-metisie.webm" type="video/webm" />
+                </video>
               </section>
               {/* SECTION - FOURTH SLIDE IMG */}
               <section className={styles.imgSection}>
@@ -82,12 +88,14 @@ export default function HomePage() {
                 <p>Zdjęcie 5</p>
               </section>
               {/* SECTION - SIXTH SLIDE IMG */}
-              <section className={styles.imgSection}>
+              {/* <section className={styles.imgSection}>
                 <p>Zdjęcie 6</p>
-              </section>
+              </section> */}
               {/* SECTION - SEVENTH SLIDE IMG */}
               <section className={styles.imgSection}>
-                <p>Zdjęcie 7</p>
+                <video autoPlay loop muted playsInline>
+                  <source src="/video/cennik.webm" type="video/webm" />
+                </video>
               </section>
               {/* SECTION - EIGHTH SLIDE IMG */}
               <section className={styles.imgSection}>
@@ -172,6 +180,7 @@ function PickerSection({ sliderRefLeftCol }) {
           zastosowań przemysłowych i dekoracyjnych. Jego funkcje są zaprojektowane tak, aby sprostać
           nawet najbardziej wymagającym zadaniom.</p>}
       </div>
+      <Image src="/images/metis_logo.jpg" alt="Logo Metis" className={styles.metisLogo} width={300} height={126} />
       <div className={styles.marginBottom} />
     </section>
   )
@@ -183,7 +192,7 @@ function VideoSection({ sliderRefLeftCol }) {
       <h2 className={styles.sectionTitle}>Zobacz Nas w Akcji</h2>
       <p className={styles.sectionText}>Przekonaj się jak działamy. Zobacz krok po kroku jak wygląda proces tworzenia skanów strukturalnych. Przekonaj się, że nasza firma to jedyny słuszny wybór.</p>
       <video className={styles.sectionVideo} autoPlay loop muted playsInline controls>
-        <source src="/video/video_1.webm" type="video/webm" />
+        <source src="/video/co-skanujemy.webm" type="video/webm" />
       </video>
       <div className={styles.marginBottom} />
     </section>

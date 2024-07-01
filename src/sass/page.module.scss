@@ -90,6 +90,12 @@
             background-color: green;
           }
 
+          video {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+          }
+
         }
       }
     }
@@ -156,15 +162,15 @@
     color: var(--color-blue);
 
     .videoIcon {
-      background-image: url('/images/icons/blue/video.png');
+      background-image: url('/images/icons/red/video.png');
     }
 
     .phoneIcon {
-      background-image: url('/images/icons/blue/phone.png');
+      background-image: url('/images/icons/red/phone.png');
     }
 
     .arrowIcon {
-      background-image: url('/images/icons/blue/arrow.png');
+      background-image: url('/images/icons/red/arrow.png');
     }
   }
 }
@@ -240,19 +246,19 @@
       color: var(--color-blue);
 
       .descriptionIcon {
-        background-image: url('/images/icons/blue/note.png');
+        background-image: url('/images/icons/red/note.png');
       }
 
       .specificationIcon {
-        background-image: url('/images/icons/blue/specyfication.png');
+        background-image: url('/images/icons/red/specyfication.png');
       }
 
       .bulbIcon {
-        background-image: url('/images/icons/blue/bulb.png');
+        background-image: url('/images/icons/red/bulb.png');
       }
 
       .helpIcon {
-        background-image: url('/images/icons/blue/help.png');
+        background-image: url('/images/icons/red/help.png');
       }
     }
   }
@@ -284,8 +290,11 @@
 }
 
 .sectionVideo {
+  display: none;
   width: 100%;
   border-radius: 4px;
+  height: 400px;
+  object-fit: contain;
 }
 
 .feedbackContainer {
@@ -451,19 +460,19 @@
     }
 
     .phoneIcon {
-      background-image: url('/images/icons/blue/phone_fill.png');
+      background-image: url('/images/icons/red/phone_fill.png');
     }
 
     .mailIcon {
-      background-image: url('/images/icons/blue/mail.png');
+      background-image: url('/images/icons/red/mail.png');
     }
 
     .websiteIcon {
-      background-image: url('/images/icons/blue/website.png');
+      background-image: url('/images/icons/red/website.png');
     }
 
     .clockIcon {
-      background-image: url('/images/icons/blue/clock.png');
+      background-image: url('/images/icons/red/clock.png');
     }
 
   }
@@ -562,14 +571,21 @@
 }
 
 
+.metisLogo {
+  width: 280px;
+  height: unset;
+  object-fit: contain;
+  margin-top: 24px;
+  border-radius: 4px;
+}
 
 // Icons Section
 .labelIcon {
-  background-image: url('/images/icons/blue/tags.png');
+  background-image: url('/images/icons/red/tags.png');
 }
 
 .feedbackStarIcon {
-  background-image: url('/images/icons/blue/star.png');
+  background-image: url('/images/icons/red/star.png');
 }
 
 @media(max-width: 760px) {

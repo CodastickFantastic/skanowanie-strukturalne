@@ -2,6 +2,7 @@
 
 import goToSlide from "@/helpers/goToSlide"
 import styles from "@/sass/components/layout/header.module.scss"
+import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
 
 export default function Header() {
@@ -19,7 +20,7 @@ export default function Header() {
             <SideBarMenu showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
             <header className={styles.header}>
                 <div className="container">
-                    <p className={styles.logo} onClick={() => console.log(sliderRefLeftCol)}>LOGO</p>
+                    <Image src="/logo.png" className={styles.logo} width={300} height={300}></Image>
                     <span className={`icon ${styles.hamburgerMenu}`} onClick={() => setShowSidebar(!showSidebar)} />
                 </div>
             </header>
@@ -32,7 +33,7 @@ function SideBarMenu({ showSidebar, setShowSidebar }) {
     return (
         <nav className={`${styles.sidebarMenu} ${showSidebar ? styles.show : ""}`}>
             <div className={styles.sidebarHeader}>
-                <p>LOGO</p>
+                <Image src="/logo.png" alt="logo" width={300} height={300} />
             </div>
             <div className={styles.links}>
                 <p onClick={() => { goToSlide(sliderRefLeftCol, 0, true); goToSlide(sliderRefRightCol, 0, true); setShowSidebar(!showSidebar) }}><span className={`icon ${styles.closeMenu}`} />Home</p>
@@ -40,7 +41,7 @@ function SideBarMenu({ showSidebar, setShowSidebar }) {
                 <p onClick={() => { goToSlide(sliderRefLeftCol, 2, true); goToSlide(sliderRefRightCol, 2, true); setShowSidebar(!showSidebar) }}><span className={`icon ${styles.closeMenu}`} />O skanerze Metis</p>
                 <p onClick={() => { goToSlide(sliderRefLeftCol, 3, true); goToSlide(sliderRefRightCol, 3, true); setShowSidebar(!showSidebar) }}><span className={`icon ${styles.closeMenu}`} />Zobacz nas w akcji</p>
                 <p onClick={() => { goToSlide(sliderRefLeftCol, 4, true); goToSlide(sliderRefRightCol, 4, true); setShowSidebar(!showSidebar) }}><span className={`icon ${styles.closeMenu}`} />Opinie klientów</p>
-                <p onClick={() => { goToSlide(sliderRefLeftCol, 5, true); goToSlide(sliderRefRightCol, 5, true); setShowSidebar(!showSidebar) }}><span className={`icon ${styles.closeMenu}`} />Galeria skanów</p>
+                {/* <p onClick={() => { goToSlide(sliderRefLeftCol, 5, true); goToSlide(sliderRefRightCol, 5, true); setShowSidebar(!showSidebar) }}><span className={`icon ${styles.closeMenu}`} />Galeria skanów</p> */}
                 <p onClick={() => { goToSlide(sliderRefLeftCol, 6, true); goToSlide(sliderRefRightCol, 6, true); setShowSidebar(!showSidebar) }}><span className={`icon ${styles.closeMenu}`} />Cennik Skanowania</p>
                 <p onClick={() => { goToSlide(sliderRefLeftCol, 7, true); goToSlide(sliderRefRightCol, 7, true); setShowSidebar(!showSidebar) }}><span className={`icon ${styles.closeMenu}`} />Kontakt</p>
             </div>

@@ -23,6 +23,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="pl">
       <body className={`${nunito.variable} ${openSans.variable}`}>
+        <div className="background-video">
+          <video autoPlay loop muted playsInline>
+            <source src="/video/background_video.webm" type="video/webm" />
+          </video>
+        </div>
         <Header />
         {children}
         <Footer />

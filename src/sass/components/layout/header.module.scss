@@ -10,7 +10,9 @@
         justify-content: space-between;
 
         .logo {
-            font-size: 24px;
+            width: 180px;
+            object-fit: contain;
+            height: unset;
         }
 
 
@@ -21,7 +23,7 @@
             cursor: pointer;
 
             &:hover {
-                background-image: url("/images/icons/blue/menu.png");
+                background-image: url("/images/icons/red/menu.png");
             }
         }
     }
@@ -35,7 +37,7 @@
     height: 100dvh;
     width: 240px;
     padding: 12px 0;
-    background: var(--color-blue);
+    background: var(--color-dark-blue);
     transition: .2s linear;
 
     &.show {
@@ -47,7 +49,13 @@
         align-items: center;
         justify-content: space-between;
         margin-bottom: 24px;
-        padding: 40%;
+        padding: 10%;
+
+        img {
+            width: 100%;
+            height: unset;
+            object-fit: contain;
+        }
     }
 
     .links {
