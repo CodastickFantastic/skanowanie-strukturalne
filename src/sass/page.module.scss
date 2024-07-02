@@ -311,7 +311,9 @@
 
   @media(max-width: 760px) {
     display: block;
-    height: 180px;
+    width: 100%;
+    height: unset;
+    aspect-ratio: 16 / 9;
   }
 }
 
@@ -474,6 +476,10 @@
     text-decoration: none;
     font-family: var(--font-open-sans);
     color: var(--color-white);
+
+    @media(max-width: 760px) {
+      min-width: 49%!important;
+    }
 
     &:hover {
       text-decoration: underline;
