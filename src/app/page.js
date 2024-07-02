@@ -15,6 +15,7 @@ export default function HomePage() {
   const { onTouchStart, onTouchEnd } = useTouchEvents()
 
   useEffect(() => {
+    reviewsSliderRef.current.scrollLeft = 0
     document.addEventListener("wheel", () => changeSlideByWheelLeftCol(sliderRefLeftCol))
     document.addEventListener("wheel", () => changeSlideByWheelRightCol(sliderRefRightCol))
     document.addEventListener("touchstart", (e) => onTouchStart(e))
@@ -89,7 +90,6 @@ export default function HomePage() {
               {/* SECTION - FIFTH SLIDE IMG */}
               <section className={styles.imgSection}>
                 <div className={styles.reviewsImgSlider} ref={reviewsSliderRef}>
-                  {/* <div className={styles.reviewsImgSliderInner}> */}
                   <Image src="/images/reviews/1.jpg" alt="Zdjęcie 1" width={290} height={580} />
                   <Image src="/images/reviews/2.jpg" alt="Zdjęcie 1" width={290} height={580} />
                   <Image src="/images/reviews/3.jpg" alt="Zdjęcie 1" width={290} height={580} />
@@ -97,8 +97,6 @@ export default function HomePage() {
                   <Image src="/images/reviews/5.jpg" alt="Zdjęcie 1" width={290} height={580} />
                   <Image src="/images/reviews/6.jpg" alt="Zdjęcie 1" width={290} height={580} />
                   <Image src="/images/reviews/7.jpg" alt="Zdjęcie 1" width={290} height={580} />
-                  {/* </div> */}
-
                 </div>
               </section>
               {/* SECTION - SIXTH SLIDE IMG */}
@@ -214,9 +212,12 @@ function ClientFeedbackSection({ sliderRefLeftCol, reviewsImgSlider }) {
   const sliderRef = useRef(null)
   let preventSliderScroll = false
   let preventImgSliderScroll = false
+  useEffect(() => {
+    sliderRef.current.scrollLeft = 0
+  })
 
   function nextFeedback() {
-    const maxScroll = sliderRef.current.clientWidth * (sliderRef.current.children.length - 1)
+    const maxScroll = sliderRef.current.clientWidth * (sliderRef.current.children[0].children.length - 1)
 
     if (!preventSliderScroll) {
       setTimeout(() => {
@@ -253,7 +254,101 @@ function ClientFeedbackSection({ sliderRefLeftCol, reviewsImgSlider }) {
     <section className={styles.section}>
       <h2 className={styles.sectionTitle}>Zadowoleni Klienci</h2>
       <div className={styles.feedbackContainer} ref={sliderRef}>
-        <div className={styles.feedback}>
+        <div className={styles.feedbackContainerInner} >
+          <div className={styles.feedback}>
+            <p className={styles.feedbackContent}>„Jestem bardzo zadowolona z obsługi w Państwa firmie. Zaobserwowałam, że: 1. Obsługa klienta jest na najwyższym poziomie - kompetencja pracowników, rewelacyjna komunikacja, rzeczowość, słowność, życzliwość. 2. Jakość skanów wspaniała. Na pewno będę korzystać z Państwa usług. Do rychłego zobaczenia!”</p>
+            <div className={styles.feedbackFooter}>
+              <p className={styles.feedbackAuthor}>~ AdrienneArtPouring</p>
+              <div className={styles.feedbackRate}>
+                <span className={`icon ${styles.feedbackStarIcon}`} />
+                <span className={`icon ${styles.feedbackStarIcon}`} />
+                <span className={`icon ${styles.feedbackStarIcon}`} />
+                <span className={`icon ${styles.feedbackStarIcon}`} />
+                <span className={`icon ${styles.feedbackStarIcon}`} style={{ opacity: '0.4' }} />
+              </div>
+            </div>
+          </div>
+          <div className={styles.feedback}>
+            <p className={styles.feedbackContent}>„Z firmą Skanowanie.pl współpracuję już od dłuższego czasu. Moje obrazy są skanowane "od ręki". Jestem bardzo zadowolony z naszej współpracy i oczywiście nadal będę ją kontynuować. Kontakt z firmą również jest na najwyższym poziomie, tak samo jak skany moich prac.”</p>
+            <div className={styles.feedbackFooter}>
+              <p className={styles.feedbackAuthor}>~ Wojciech Brewka</p>
+              <div className={styles.feedbackRate}>
+                <span className={`icon ${styles.feedbackStarIcon}`} />
+                <span className={`icon ${styles.feedbackStarIcon}`} />
+                <span className={`icon ${styles.feedbackStarIcon}`} />
+                <span className={`icon ${styles.feedbackStarIcon}`} />
+                <span className={`icon ${styles.feedbackStarIcon}`} />
+              </div>
+            </div>
+          </div>
+          <div className={styles.feedback}>
+            <p className={styles.feedbackContent}>@profiholiday<br />
+              „W zasadzie uratowaliście nam życie, bo nigdzie nie było dostępności płaskich skanerów. A jeśli chodzi o sam kontakt i obsługę to daje 5/5 no i bardzo fajna atmosfera na miejscu – podczas oczekiwania na skany. Także wszystko na tip-top , polecam!”</p>
+            <div className={styles.feedbackFooter}>
+              <p className={styles.feedbackAuthor}>~ Dawid Bobrowski</p>
+              <div className={styles.feedbackRate}>
+                <span className={`icon ${styles.feedbackStarIcon}`} />
+                <span className={`icon ${styles.feedbackStarIcon}`} />
+                <span className={`icon ${styles.feedbackStarIcon}`} />
+                <span className={`icon ${styles.feedbackStarIcon}`} />
+                <span className={`icon ${styles.feedbackStarIcon}`} style={{ opacity: '0.4' }} />
+              </div>
+            </div>
+          </div>
+          <div className={styles.feedback}>
+            <p className={styles.feedbackContent}>„Z głębokim przekonaniem doradzam i polecam skorzystanie z usług skanowanie.pl. Jakość usług oferowanych przez tę firmę stoi na najwyższym poziomie. Dostępne jedynie tu, wielkoformatowe płaskie skanery, pozwalają na bardzo precyzyjne fotografowanie nawet bardzo dużych arkuszy. Niezwykła jakość skanowania i idealne odwzorowanie kolorów, pozwala na wykorzystanie go w każdym obszarze wymagającym takich parametrów. Współpraca z pracownikami skanowanie.pl jest czystą przyjemnością.”</p>
+            <div className={styles.feedbackFooter}>
+              <p className={styles.feedbackAuthor}>~ Dr Daniel Zarewicz</p>
+              <div className={styles.feedbackRate}>
+                <span className={`icon ${styles.feedbackStarIcon}`} />
+                <span className={`icon ${styles.feedbackStarIcon}`} />
+                <span className={`icon ${styles.feedbackStarIcon}`} />
+                <span className={`icon ${styles.feedbackStarIcon}`} />
+                <span className={`icon ${styles.feedbackStarIcon}`} />
+              </div>
+            </div>
+          </div>
+          <div className={styles.feedback}>
+            <p className={styles.feedbackContent}>„Wykonałem kilkanaście skanów moich obrazów w skanowanie.pl. Za każdym razem mogłem liczyć na profesjonalizm, rzetelność i wysoką jakość skanowania potrzebną mi do przygotowywania wysokiej jakości reprodukcji moich obrazów.”</p>
+            <div className={styles.feedbackFooter}>
+              <p className={styles.feedbackAuthor}>~ Krzysztof Kargol</p>
+              <div className={styles.feedbackRate}>
+                <span className={`icon ${styles.feedbackStarIcon}`} />
+                <span className={`icon ${styles.feedbackStarIcon}`} />
+                <span className={`icon ${styles.feedbackStarIcon}`} />
+                <span className={`icon ${styles.feedbackStarIcon}`} />
+                <span className={`icon ${styles.feedbackStarIcon}`} />
+              </div>
+            </div>
+          </div>
+          <div className={styles.feedback}>
+            <p className={styles.feedbackContent}>„Odkrycie usług firmy Skanowanie.pl (dawniej Mikrofilm-Service) było kamieniem milowym w budowaniu mojej kariery artystycznej. Profesjonalne skanowanie okazało się najlepszą z możliwych opcji na wierne odwzorowanie kolorów i faktur moich obrazów. Dzięki temu mogę archiwizować swoje obrazy na komputerze oraz sprzedawać ich kopie jako plakaty (i nie tylko!). Tego nie zastąpi nawet najlepsza fotografia. Szczerze polecam usługi firmy wszystkim tym, którzy zastanawiają się jak bez utraty jakości zdigitalizować to, co tworzą.”</p>
+            <div className={styles.feedbackFooter}>
+              <p className={styles.feedbackAuthor}>~ Ewelina Czarnecka</p>
+              <div className={styles.feedbackRate}>
+                <span className={`icon ${styles.feedbackStarIcon}`} />
+                <span className={`icon ${styles.feedbackStarIcon}`} />
+                <span className={`icon ${styles.feedbackStarIcon}`} />
+                <span className={`icon ${styles.feedbackStarIcon}`} />
+                <span className={`icon ${styles.feedbackStarIcon}`} />
+              </div>
+            </div>
+          </div>
+          <div className={styles.feedback}>
+            <p className={styles.feedbackContent}>„Fantastyczna jakość skanów, doskonałe odwzorowanie kolorów. Profesjonalny i pomocny personel. Od jakiegoś czasu szukaliśmy firmy, z którą będziemy mogli stale współpracować w zakresie wysokojakościowych skanów obrazów i myślę, że znaleźliśmy tę właściwą firmę! Bardzo pomocna i zaangażowana obsługa klienta, nie ma rzeczy niemożliwych, do tego rozumiemy się już bez słów. Pełen profesjonalizm!”</p>
+            <div className={styles.feedbackFooter}>
+              <p className={styles.feedbackAuthor}>~ FineArtPrints.pl</p>
+              <div className={styles.feedbackRate}>
+                <span className={`icon ${styles.feedbackStarIcon}`} />
+                <span className={`icon ${styles.feedbackStarIcon}`} />
+                <span className={`icon ${styles.feedbackStarIcon}`} />
+                <span className={`icon ${styles.feedbackStarIcon}`} />
+                <span className={`icon ${styles.feedbackStarIcon}`} />
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* <div className={styles.feedback}>
           <p className={styles.feedbackContent}>„Jestem bardzo zadowolona z obsługi w Państwa firmie. Zaobserwowałam, że: 1. Obsługa klienta jest na najwyższym poziomie - kompetencja pracowników, rewelacyjna komunikacja, rzeczowość, słowność, życzliwość. 2. Jakość skanów wspaniała. Na pewno będę korzystać z Państwa usług. Do rychłego zobaczenia!”</p>
           <div className={styles.feedbackFooter}>
             <p className={styles.feedbackAuthor}>~ AdrienneArtPouring</p>
@@ -344,7 +439,7 @@ function ClientFeedbackSection({ sliderRefLeftCol, reviewsImgSlider }) {
               <span className={`icon ${styles.feedbackStarIcon}`} />
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
       <div className={styles.feedbackNavigation}>
         <button className={styles.sectionButton} onClick={() => { nextFeedback(); nextFedbackImg() }}>Pokaż Kolejną Opinię <span className={`icon ${styles.arrowIcon}`} /></button>

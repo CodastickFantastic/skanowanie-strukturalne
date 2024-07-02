@@ -84,11 +84,6 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          background-color: red;
-
-          &:nth-of-type(1) {
-            background-color: green;
-          }
 
           video {
             height: 100%;
@@ -101,11 +96,16 @@
             width: 100%;
             overflow: hidden;
             display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
 
             img {
+              min-width: 100%;
               width: 100%;
+              // width: 288px;
               height: 100%;
               object-fit: cover;
+              flex: 1;
             }
           }
         }
@@ -317,10 +317,18 @@
 
 .feedbackContainer {
   width: 100%;
-  display: flex;
-  flex-direction: row;
+  // display: flex;
+  // flex-direction: row;
   overflow: hidden;
   transition: 0.2s linear;
+  scroll-behavior: smooth;
+
+  .feedbackContainerInner {
+    width: 100%;
+    display: flex;
+    transition: 0.2s linear;
+    scroll-behavior: smooth;
+  }
 
   .feedback {
     min-width: 100%;
