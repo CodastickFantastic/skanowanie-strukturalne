@@ -1,0 +1,69 @@
+.main {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: #000;
+
+    .legalPage {
+        margin-top: 64px;
+        padding-bottom: 124px;
+
+        .backLink {
+            font-family: var(--font-open-sans);
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: .5px;
+            text-align: left;
+            margin-bottom: 24px;
+            cursor: pointer;
+            color: var(--color-blue);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            column-gap: 6px;
+            width: max-content;
+
+            &:hover {
+                text-decoration: underline;
+            }
+
+            .backIcon {
+                background-image: url("/images/icons/red/arrow.png");
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                width: 24px;
+                height: 24px;
+                rotate: 180deg;
+            }
+        }
+
+        h1 {
+            font-family: var(--font-nunito);
+            font-size: 42px;
+            font-weight: 300;
+            letter-spacing: .5px;
+            text-align: left;
+            margin-bottom: 12px;
+        }
+
+        p,
+        li {
+            font-family: var(--font-open-sans);
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: .5px;
+            line-height: 20px;
+            text-align: left;
+            margin-bottom: 24px;
+        }
+
+        ol {
+            margin-left: 24px;
+        }
+    }
+}
