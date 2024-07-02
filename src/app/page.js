@@ -201,7 +201,7 @@ function VideoSection({ sliderRefLeftCol }) {
       <h2 className={styles.sectionTitle}>Proces Digitalizacji Obiektów</h2>
       <p className={styles.sectionText}>Zobacz krok po kroku, jak wygląda proces tworzenia skanów strukturalnych w naszej firmie. Przekonaj się, że jesteśmy jedynym słusznym wyborem. <br /><br />1. Rozpoczynamy od rozmowy, aby zrozumieć potrzeby i oczekiwania Klienta. Określamy cel skanowania.<br /><br />2. Dokładnie kalibrujemy nasze urządzenia, aby zapewnić, że uzyskane skany będą wiernie odwzorowywać rzeczywistość.<br /><br />3. Przeprowadzamy skanowanie zgodnie z ustalonymi wcześniej procedurami. </p>
       <video className={styles.sectionVideo} autoPlay loop muted playsInline>
-        <source src="/video/w-akcji.webm" type="video/webm" />
+        <source src="/video/w-akcji-mobile.webm" type="video/webm" />
       </video>
       <div className={styles.marginBottom} />
     </section>
