@@ -11,6 +11,7 @@ import goToSlide from "@/helpers/goToSlide";
 export default function HomePage() {
   const sliderRefLeftCol = useRef(null);
   const sliderRefRightCol = useRef(null);
+  const reviewsSliderRef = useRef(null);
   const { onTouchStart, onTouchEnd } = useTouchEvents()
 
   useEffect(() => {
@@ -41,7 +42,7 @@ export default function HomePage() {
             {/* SECTION - FOURTH SLIDE CONTENT */}
             <VideoSection />
             {/* SECTION - FIFTH SLIDE CONTENT */}
-            <ClientFeedbackSection />
+            <ClientFeedbackSection reviewsImgSlider={reviewsSliderRef} />
             {/* SECTION - SIXTH SLIDE CONTENT */}
             {/* <PhotosSection /> */}
             {/* SECTION - SEVENTH SLIDE CONTENT */}
@@ -81,11 +82,24 @@ export default function HomePage() {
               </section>
               {/* SECTION - FOURTH SLIDE IMG */}
               <section className={styles.imgSection}>
-                <p>Zdjęcie 4</p>
+                <video autoPlay loop muted playsInline>
+                  <source src="/video/w-akcji.webm" type="video/webm" />
+                </video>
               </section>
               {/* SECTION - FIFTH SLIDE IMG */}
               <section className={styles.imgSection}>
-                <p>Zdjęcie 5</p>
+                <div className={styles.reviewsImgSlider} ref={reviewsSliderRef}>
+                  {/* <div className={styles.reviewsImgSliderInner}> */}
+                  <Image src="/images/reviews/1.jpg" alt="Zdjęcie 1" width={290} height={580} />
+                  <Image src="/images/reviews/2.jpg" alt="Zdjęcie 1" width={290} height={580} />
+                  <Image src="/images/reviews/3.jpg" alt="Zdjęcie 1" width={290} height={580} />
+                  <Image src="/images/reviews/4.jpg" alt="Zdjęcie 1" width={290} height={580} />
+                  <Image src="/images/reviews/5.jpg" alt="Zdjęcie 1" width={290} height={580} />
+                  <Image src="/images/reviews/6.jpg" alt="Zdjęcie 1" width={290} height={580} />
+                  <Image src="/images/reviews/7.jpg" alt="Zdjęcie 1" width={290} height={580} />
+                  {/* </div> */}
+
+                </div>
               </section>
               {/* SECTION - SIXTH SLIDE IMG */}
               {/* <section className={styles.imgSection}>
@@ -99,7 +113,9 @@ export default function HomePage() {
               </section>
               {/* SECTION - EIGHTH SLIDE IMG */}
               <section className={styles.imgSection}>
-                <p>Zdjęcie 8</p>
+                <video autoPlay loop muted playsInline>
+                  <source src="/video/kontakt.webm" type="video/webm" />
+                </video>
               </section>
             </div>
           </div>
@@ -114,7 +130,7 @@ function HeroSection({ sliderRefLeftCol, sliderRefRightCol }) {
   return (
     <section className={styles.section}>
       <h1 className={styles.sectionTitle}>Skanowanie Strukturalne</h1>
-      <p className={styles.sectionText}>Nasza technologia pozwoli na uzyskanie odwzorowania trójwymiarowych obiektów zamiast płaskich zdjęć - nowość na polskim rynku - skan 3D (strukturalny). Plik uwydatnia całą strukturę przedmiotu skanowanego.</p>
+      <p className={styles.sectionText}>Nasza technologia pozwoli na uzyskanie odwzorowania trójwymiarowych obiektów zamiast płaskich zdjęć - nowość na polskim rynku - skan 3D (strukturalny). Plik uwydatnia całą strukturę przedmiotu skanowanego.<br /><br />Dzięki unikalnemu trybowi METIS SuperScan i formatowi pliku „MDC” wszystkie schematy światła naturalnego są rejestrowane i dostępne w jednym pliku. Co więcej, dzięki oprogramowaniu Light Inspector można w dowolnym momencie uzyskać inny wygląd obrazu, bez konieczności ponownego skanowania oryginału czy fizycznej regulacji oświetlenia.</p>
       <button className={styles.sectionButton} onClick={() => { goToSlide(sliderRefLeftCol, 3); goToSlide(sliderRefRightCol, 3) }}>
         <span className={`icon ${styles.videoIcon}`} />Pokaż Film
       </button>
@@ -128,7 +144,8 @@ function FeaturesSection({ sliderRefLeftCol, sliderRefRightCol }) {
   return (
     <section className={styles.section}>
       <h2 className={styles.sectionTitle}>Co Skanujemy?</h2>
-      <p className={styles.sectionText}>Dzięki wykorzystaniu najnowszej technologii jesteśmy w stanie dokonać skanowania strukturalnego niemalże każdej powierzchni. Skonktaktuj się z nami by poznać szczegóły.</p>
+      <p className={styles.sectionText}>Dzięki wykorzystaniu najnowszej technologii jesteśmy w stanie dokonać skanowania strukturalnego niemalże każdej powierzchni.<br /><br />Klienci korzystają z technologii METIS w wielu różnych sektorach rynku dekorów, w szczególności w firmach projektowych i wewnętrznych działach projektowych w zakresie podłóg drewnianych i laminowanych, ceramiki, tapet, tekstyliów, grawerowania płyt i cylindrów pras, druku cyfrowego, reprodukcji dzieł sztuki, CAD i dostawcy usług 3D.
+        <br /><br />Skonktaktuj się z nami by poznać szczegóły.</p>
       <div className={styles.featuresHolder}>
         <div className={styles.feature}><span className={`icon ${styles.paintingIcon}`} /><p>Obrazy w ramie lub bez</p></div>
         <div className={styles.feature}><span className={`icon ${styles.posterIcon}`} /><p>Plakaty</p></div>
@@ -159,26 +176,20 @@ function PickerSection({ sliderRefLeftCol }) {
         <p className={`${styles.tile} ${showSection === 3 ? styles.tileActive : ''}`} onClick={() => setShowSection(3)}><span className={`icon ${styles.helpIcon}`} />Broszura</p>
       </div>
       <div className={styles.sectionPickerContent}>
-        {showSection === 0 && <p>Metis DRS 1622 DCS Plus oferuje obsługę formatu skanowania do 160 x 100 cm (62,99 x
-          39,37 cala) i jest najnowszym modelem w rodzinie tych skanerów.<br /><br /> Został stworzony specjalnie do
-          zastosowań przemysłowych i dekoracyjnych. Jego funkcje są zaprojektowane tak, aby sprostać
-          nawet najbardziej wymagającym zadaniom.</p>}
+        {showSection === 0 && <p>Metis DRS 1622 DCS Plus to najnowszy skaner średniej wielkości z laboratorium hi-tech METIS, zaprojektowany specjalnie dla rynków przemysłowych i dekoracyjnych. Oferuje obsługę formatu skanowania do 160 x 100 cm.<br /><br /> Integruje wszystkie najnowocześniejsze technologie METIS z większych formatów, takie jak uchwycenie naturalnych kolorów i wyglądu, dostarcza odpowiednie dane 2D i 3D z rozszerzoną możliwością dostosowania oświetlenia bez potrzeby ponownego skanowania obiektu.<br /><br />Jedyny taki skaner w Polsce!</p>}
         {showSection === 1 && <ul>
           <li>Format skanowania : 160 x 100 cm</li>
-          <li>Rozdzielczość optyczna : 1200</li>
-          <li>PPI przy 160 x 34,5 cm (62,99 x 13,58 cala) lub 400 PPI przy pełnym formacie</li>
-          <li>Formaty zapisu obrazu: Metis MDC, standardowy TIFF (kolor: 48
-            lub 24 bity; skala szarości: 16 lub 8 bitów)</li>
+          <li>Rozdzielczość optyczna : 1200 PPI przy 160 x 34,5 cm </li>
+          <li>Rozdzielczość optyczna : 400 PPI przy pełnym formacie</li>
+          <li>Przetwornik obrazu: trójliniowy CMOS 16K, wysoki zakres dynamiki, niski poziom szumów, wysoka wierność kolorów</li>
+          <li>Grubość oryginałów: do 12 cm</li>
+          <li>Formaty zapisu obrazu: Metis MDC, standardowy TIFF (kolor: 48 lub 24 bity; skala szarości: 16 lub 8 bitów)</li>
         </ul>}
-        {showSection === 2 && <p>Nowy i ulepszony system oświetlenia DC Synchrolight
-          zaktualizowany do najnowszej technologii LED o zwiększonej mocy
-          oświetlenia i oddawania barw.<br /><br /> Światło synchronizacyjne DC (dynamicznie
-          sterowane światło zsynchronizowane) to technologia METIS chroniona
-          patentem .</p>}
-        {showSection === 3 && <p>Metis DRS 1622 DCS Plus oferuje obsługę formatu skanowania do 160 x 100 cm (62,99 x
-          39,37 cala) i jest najnowszym modelem w rodzinie tych skanerów.<br /><br /> Został stworzony specjalnie do
-          zastosowań przemysłowych i dekoracyjnych. Jego funkcje są zaprojektowane tak, aby sprostać
-          nawet najbardziej wymagającym zadaniom.</p>}
+        {showSection === 2 && <p>Nowy i ulepszony system oświetlenia DC Synchrolight zaktualizowany do technologii LED o zwiększonej mocy oświetlenia i oddawania barw. Światło synchronizacyjne DC (dynamicznie sterowane  zsynchronizowane) to technologia METIS chroniona patentem.<br /><br />Opatentowany System Oświetlenia: 8 źródeł światła o zmiennym natężeniu; tysiące różnych schematów świetlnych można uzyskać poprzez przyciemnianie i ustawienie odległości światła (w pełni zautomatyzowane i kontrolowane programowo)<br /><br />Typ źródła światła: Diody LED o wysokim CRI, wolne od IR/UV Wysokiej jakości precyzja/niezawodna mechanika i optyka</p>}
+        {showSection === 3 &&
+          <>
+            <Link href="/broszura_metis.pdf" target="_blank" className={styles.sectionButton}>Pobierz Broszurę Metis</Link>
+          </>}
       </div>
       <Image src="/images/metis_logo.jpg" alt="Logo Metis" className={styles.metisLogo} width={300} height={126} />
       <div className={styles.marginBottom} />
@@ -189,19 +200,20 @@ function PickerSection({ sliderRefLeftCol }) {
 function VideoSection({ sliderRefLeftCol }) {
   return (
     <section className={styles.section}>
-      <h2 className={styles.sectionTitle}>Zobacz Nas w Akcji</h2>
-      <p className={styles.sectionText}>Przekonaj się jak działamy. Zobacz krok po kroku jak wygląda proces tworzenia skanów strukturalnych. Przekonaj się, że nasza firma to jedyny słuszny wybór.</p>
-      <video className={styles.sectionVideo} autoPlay loop muted playsInline controls>
-        <source src="/video/co-skanujemy.webm" type="video/webm" />
+      <h2 className={styles.sectionTitle}>Proces Digitalizacji Obiektów</h2>
+      <p className={styles.sectionText}>Zobacz krok po kroku, jak wygląda proces tworzenia skanów strukturalnych w naszej firmie. Przekonaj się, że jesteśmy jedynym słusznym wyborem. <br /><br />1. Rozpoczynamy od rozmowy, aby zrozumieć potrzeby i oczekiwania Klienta. Określamy cel skanowania.<br /><br />2. Dokładnie kalibrujemy nasze urządzenia, aby zapewnić, że uzyskane skany będą wiernie odwzorowywać rzeczywistość.<br /><br />3. Przeprowadzamy skanowanie zgodnie z ustalonymi wcześniej procedurami. </p>
+      <video className={styles.sectionVideo} autoPlay loop muted playsInline>
+        <source src="/video/w-akcji.webm" type="video/webm" />
       </video>
       <div className={styles.marginBottom} />
     </section>
   )
 }
 
-function ClientFeedbackSection({ sliderRefLeftCol }) {
+function ClientFeedbackSection({ sliderRefLeftCol, reviewsImgSlider }) {
   const sliderRef = useRef(null)
   let preventSliderScroll = false
+  let preventImgSliderScroll = false
 
   function nextFeedback() {
     const maxScroll = sliderRef.current.clientWidth * (sliderRef.current.children.length - 1)
@@ -220,51 +232,29 @@ function ClientFeedbackSection({ sliderRefLeftCol }) {
     }
   }
 
+  function nextFedbackImg() {
+    const maxScroll = reviewsImgSlider.current.clientWidth * (reviewsImgSlider.current.children.length - 1)
+
+    if (!preventImgSliderScroll) {
+      setTimeout(() => {
+        preventImgSliderScroll = false
+      }, 500)
+      if (reviewsImgSlider.current.scrollLeft + 4 < maxScroll) {
+        preventImgSliderScroll = true
+        reviewsImgSlider.current.scrollBy({ left: reviewsImgSlider.current.clientWidth, behavior: 'smooth' })
+      } else {
+        preventImgSliderScroll = true
+        reviewsImgSlider.current.scrollBy({ left: -maxScroll, behavior: 'smooth' })
+      }
+    }
+  }
+
   return (
     <section className={styles.section}>
       <h2 className={styles.sectionTitle}>Zadowoleni Klienci</h2>
       <div className={styles.feedbackContainer} ref={sliderRef}>
         <div className={styles.feedback}>
-          <p className={styles.feedbackContent}>„Moje obrazy skanowane są “od ręki”. Jestem bardzo zadowolony ze współpracy i oczywiście nadal będę ją kontynuował. Kontakt z firmą jest również na wysokim poziomie, tak jak skany moich prac.”</p>
-          <div className={styles.feedbackFooter}>
-            <p className={styles.feedbackAuthor}>~ Wojciech Brewka</p>
-            <div className={styles.feedbackRate}>
-              <span className={`icon ${styles.feedbackStarIcon}`} />
-              <span className={`icon ${styles.feedbackStarIcon}`} />
-              <span className={`icon ${styles.feedbackStarIcon}`} />
-              <span className={`icon ${styles.feedbackStarIcon}`} />
-              <span className={`icon ${styles.feedbackStarIcon}`} style={{ opacity: '0.4' }} />
-            </div>
-          </div>
-        </div>
-        <div className={styles.feedback}>
-          <p className={styles.feedbackContent}>„W zasadzie uratowaliście nam życie. Nigdzie nie było dostępnych płaskich skanerów. Jeśli chodzi o kontakt to również 5/5 no i bardzo fajna atmosfera na miejscu – podczas oczekiwania na skany. Także wszystko na tip-top polecam!”</p>
-          <div className={styles.feedbackFooter}>
-            <p className={styles.feedbackAuthor}>~ Dawid Bobrowski</p>
-            <div className={styles.feedbackRate}>
-              <span className={`icon ${styles.feedbackStarIcon}`} />
-              <span className={`icon ${styles.feedbackStarIcon}`} />
-              <span className={`icon ${styles.feedbackStarIcon}`} />
-              <span className={`icon ${styles.feedbackStarIcon}`} />
-              <span className={`icon ${styles.feedbackStarIcon}`} />
-            </div>
-          </div>
-        </div>
-        <div className={styles.feedback}>
-          <p className={styles.feedbackContent}>„Wykonałem kilkanaście skanów w tej firmie. Za każdym razem mogłem liczyć na profesjonalizm, rzetelność i wysoką jakość skanowania potrzebną mi do przygotowania wysokiej jakości reprodukcji moich obrazów.”</p>
-          <div className={styles.feedbackFooter}>
-            <p className={styles.feedbackAuthor}>~ Krzysztof Kargol</p>
-            <div className={styles.feedbackRate}>
-              <span className={`icon ${styles.feedbackStarIcon}`} />
-              <span className={`icon ${styles.feedbackStarIcon}`} />
-              <span className={`icon ${styles.feedbackStarIcon}`} />
-              <span className={`icon ${styles.feedbackStarIcon}`} />
-              <span className={`icon ${styles.feedbackStarIcon}`} style={{ opacity: '0.4' }} />
-            </div>
-          </div>
-        </div>
-        <div className={styles.feedback}>
-          <p className={styles.feedbackContent}>„Jestem bardzo zadowolona z obsługi w Państwa firmie. Zaobserwowałam, że: 1. osługa klienta jest na najwyższym poziomie – kompetencje pracowników, rewelacyjna komunikacja, rzeczowość, słowność, życzliwość. 2. jakosc skanów jest wspaniała. Na pewno będe korzystać z Państwa usług.”</p>
+          <p className={styles.feedbackContent}>„Jestem bardzo zadowolona z obsługi w Państwa firmie. Zaobserwowałam, że: 1. Obsługa klienta jest na najwyższym poziomie - kompetencja pracowników, rewelacyjna komunikacja, rzeczowość, słowność, życzliwość. 2. Jakość skanów wspaniała. Na pewno będę korzystać z Państwa usług. Do rychłego zobaczenia!”</p>
           <div className={styles.feedbackFooter}>
             <p className={styles.feedbackAuthor}>~ AdrienneArtPouring</p>
             <div className={styles.feedbackRate}>
@@ -272,14 +262,80 @@ function ClientFeedbackSection({ sliderRefLeftCol }) {
               <span className={`icon ${styles.feedbackStarIcon}`} />
               <span className={`icon ${styles.feedbackStarIcon}`} />
               <span className={`icon ${styles.feedbackStarIcon}`} />
+              <span className={`icon ${styles.feedbackStarIcon}`} style={{ opacity: '0.4' }} />
+            </div>
+          </div>
+        </div>
+        <div className={styles.feedback}>
+          <p className={styles.feedbackContent}>„Z firmą Skanowanie.pl współpracuję już od dłuższego czasu. Moje obrazy są skanowane "od ręki". Jestem bardzo zadowolony z naszej współpracy i oczywiście nadal będę ją kontynuować. Kontakt z firmą również jest na najwyższym poziomie, tak samo jak skany moich prac.”</p>
+          <div className={styles.feedbackFooter}>
+            <p className={styles.feedbackAuthor}>~ Wojciech Brewka</p>
+            <div className={styles.feedbackRate}>
+              <span className={`icon ${styles.feedbackStarIcon}`} />
+              <span className={`icon ${styles.feedbackStarIcon}`} />
+              <span className={`icon ${styles.feedbackStarIcon}`} />
+              <span className={`icon ${styles.feedbackStarIcon}`} />
               <span className={`icon ${styles.feedbackStarIcon}`} />
             </div>
           </div>
         </div>
         <div className={styles.feedback}>
-          <p className={styles.feedbackContent}>„Z głębokim przekonaniem doradzam i polecam skorzystanie z usług. Jakość oferowana przez tę firmę stoi na najwyższym poziomie. Dostępne jedynie tu, wielkoformatowe płaskie skanery, pozwalają na bardzo precyzyjne fotografowanie nawet bardzo duzych arkuszy. Niezwykła jakosc skanowania i idealnie odwzorowanie kolorów, pozwala na wykorzystanie go w obszarze wymagającym takich parametrów. Współpraca z pracownikami jest czystą przyjemnością.”</p>
+          <p className={styles.feedbackContent}>@profiholiday<br />
+            „W zasadzie uratowaliście nam życie, bo nigdzie nie było dostępności płaskich skanerów. A jeśli chodzi o sam kontakt i obsługę to daje 5/5 no i bardzo fajna atmosfera na miejscu – podczas oczekiwania na skany. Także wszystko na tip-top , polecam!”</p>
           <div className={styles.feedbackFooter}>
-            <p className={styles.feedbackAuthor}>~ Dr Daniel Zerewicz</p>
+            <p className={styles.feedbackAuthor}>~ Dawid Bobrowski</p>
+            <div className={styles.feedbackRate}>
+              <span className={`icon ${styles.feedbackStarIcon}`} />
+              <span className={`icon ${styles.feedbackStarIcon}`} />
+              <span className={`icon ${styles.feedbackStarIcon}`} />
+              <span className={`icon ${styles.feedbackStarIcon}`} />
+              <span className={`icon ${styles.feedbackStarIcon}`} style={{ opacity: '0.4' }} />
+            </div>
+          </div>
+        </div>
+        <div className={styles.feedback}>
+          <p className={styles.feedbackContent}>„Z głębokim przekonaniem doradzam i polecam skorzystanie z usług skanowanie.pl. Jakość usług oferowanych przez tę firmę stoi na najwyższym poziomie. Dostępne jedynie tu, wielkoformatowe płaskie skanery, pozwalają na bardzo precyzyjne fotografowanie nawet bardzo dużych arkuszy. Niezwykła jakość skanowania i idealne odwzorowanie kolorów, pozwala na wykorzystanie go w każdym obszarze wymagającym takich parametrów. Współpraca z pracownikami skanowanie.pl jest czystą przyjemnością.”</p>
+          <div className={styles.feedbackFooter}>
+            <p className={styles.feedbackAuthor}>~ Dr Daniel Zarewicz</p>
+            <div className={styles.feedbackRate}>
+              <span className={`icon ${styles.feedbackStarIcon}`} />
+              <span className={`icon ${styles.feedbackStarIcon}`} />
+              <span className={`icon ${styles.feedbackStarIcon}`} />
+              <span className={`icon ${styles.feedbackStarIcon}`} />
+              <span className={`icon ${styles.feedbackStarIcon}`} />
+            </div>
+          </div>
+        </div>
+        <div className={styles.feedback}>
+          <p className={styles.feedbackContent}>„Wykonałem kilkanaście skanów moich obrazów w skanowanie.pl. Za każdym razem mogłem liczyć na profesjonalizm, rzetelność i wysoką jakość skanowania potrzebną mi do przygotowywania wysokiej jakości reprodukcji moich obrazów.”</p>
+          <div className={styles.feedbackFooter}>
+            <p className={styles.feedbackAuthor}>~ Krzysztof Kargol</p>
+            <div className={styles.feedbackRate}>
+              <span className={`icon ${styles.feedbackStarIcon}`} />
+              <span className={`icon ${styles.feedbackStarIcon}`} />
+              <span className={`icon ${styles.feedbackStarIcon}`} />
+              <span className={`icon ${styles.feedbackStarIcon}`} />
+              <span className={`icon ${styles.feedbackStarIcon}`} />
+            </div>
+          </div>
+        </div>
+        <div className={styles.feedback}>
+          <p className={styles.feedbackContent}>„Odkrycie usług firmy Skanowanie.pl (dawniej Mikrofilm-Service) było kamieniem milowym w budowaniu mojej kariery artystycznej. Profesjonalne skanowanie okazało się najlepszą z możliwych opcji na wierne odwzorowanie kolorów i faktur moich obrazów. Dzięki temu mogę archiwizować swoje obrazy na komputerze oraz sprzedawać ich kopie jako plakaty (i nie tylko!). Tego nie zastąpi nawet najlepsza fotografia. Szczerze polecam usługi firmy wszystkim tym, którzy zastanawiają się jak bez utraty jakości zdigitalizować to, co tworzą.”</p>
+          <div className={styles.feedbackFooter}>
+            <p className={styles.feedbackAuthor}>~ Ewelina Czarnecka</p>
+            <div className={styles.feedbackRate}>
+              <span className={`icon ${styles.feedbackStarIcon}`} />
+              <span className={`icon ${styles.feedbackStarIcon}`} />
+              <span className={`icon ${styles.feedbackStarIcon}`} />
+              <span className={`icon ${styles.feedbackStarIcon}`} />
+              <span className={`icon ${styles.feedbackStarIcon}`} />
+            </div>
+          </div>
+        </div>
+        <div className={styles.feedback}>
+          <p className={styles.feedbackContent}>„Fantastyczna jakość skanów, doskonałe odwzorowanie kolorów. Profesjonalny i pomocny personel. Od jakiegoś czasu szukaliśmy firmy, z którą będziemy mogli stale współpracować w zakresie wysokojakościowych skanów obrazów i myślę, że znaleźliśmy tę właściwą firmę! Bardzo pomocna i zaangażowana obsługa klienta, nie ma rzeczy niemożliwych, do tego rozumiemy się już bez słów. Pełen profesjonalizm!”</p>
+          <div className={styles.feedbackFooter}>
+            <p className={styles.feedbackAuthor}>~ FineArtPrints.pl</p>
             <div className={styles.feedbackRate}>
               <span className={`icon ${styles.feedbackStarIcon}`} />
               <span className={`icon ${styles.feedbackStarIcon}`} />
@@ -291,7 +347,7 @@ function ClientFeedbackSection({ sliderRefLeftCol }) {
         </div>
       </div>
       <div className={styles.feedbackNavigation}>
-        <button className={styles.sectionButton} onClick={() => nextFeedback()}>Pokaż Kolejną Opinię <span className={`icon ${styles.arrowIcon}`} /></button>
+        <button className={styles.sectionButton} onClick={() => { nextFeedback(); nextFedbackImg() }}>Pokaż Kolejną Opinię <span className={`icon ${styles.arrowIcon}`} /></button>
       </div>
       <div className={styles.marginBottom} />
     </section>
@@ -388,79 +444,85 @@ function PricingSection() {
         )}
 
         {showSection === 1 && (
-          <table>
-            <tbody>
-              <tr className={styles.tableHeader}>
-                <td>Dostępne Opcje</td>
-                <td>A1</td>
-                <td>A0</td>
-                <td>Pełny Stół<br />150 x 100</td>
-                <td>4 x Obiekt<br />450 x 200</td>
-              </tr>
-              <tr className={styles.tableRow}>
-                <td>Skanowanie Płaskie</td>
-                <td>100 zł</td>
-                <td>150 zł</td>
-                <td>300 zł</td>
-                <td>1500 zł</td>
-              </tr>
-              <tr className={styles.tableRow}>
-                <td>Skanowanie z Ramą</td>
-                <td>250 zł</td>
-                <td>300 zł</td>
-                <td>600 zł</td>
-                <td>3000 zł</td>
-              </tr>
-              <tr className={styles.tableRow}>
-                <td>Skanowanie 3D</td>
-                <td>350 zł</td>
-                <td>450 zł</td>
-                <td>900 zł</td>
-                <td>4000 zł</td>
-              </tr>
-              <tr className={styles.tableRow}>
-                <td>Skanowanie Strukturalne</td>
-                <td>350 zł</td>
-                <td>450 zł</td>
-                <td>900 zł</td>
-                <td>4000 zł</td>
-              </tr>
-              <tr className={styles.tableRow}>
-                <td>Skanowanie Strukturalne <br />z Mapą Połysku i Mapą 3D</td>
-                <td>650 zł</td>
-                <td>750 zł</td>
-                <td>1500 zł</td>
-                <td>6000 zł</td>
-              </tr>
-            </tbody>
-          </table>
+          <>
+            <table>
+              <tbody>
+                <tr className={styles.tableHeader}>
+                  <td>Dostępne Opcje</td>
+                  <td>A1</td>
+                  <td>A0</td>
+                  <td>Pełny Stół<br />150 x 100</td>
+                  <td>4 x Obiekt<br />450 x 200</td>
+                </tr>
+                <tr className={styles.tableRow}>
+                  <td>Skanowanie Płaskie</td>
+                  <td>100 zł</td>
+                  <td>150 zł</td>
+                  <td>300 zł</td>
+                  <td>1500 zł</td>
+                </tr>
+                <tr className={styles.tableRow}>
+                  <td>Skanowanie z Ramą</td>
+                  <td>250 zł</td>
+                  <td>300 zł</td>
+                  <td>600 zł</td>
+                  <td>3000 zł</td>
+                </tr>
+                <tr className={styles.tableRow}>
+                  <td>Skanowanie 3D</td>
+                  <td>350 zł</td>
+                  <td>450 zł</td>
+                  <td>900 zł</td>
+                  <td>4000 zł</td>
+                </tr>
+                <tr className={styles.tableRow}>
+                  <td>Skanowanie Strukturalne</td>
+                  <td>350 zł</td>
+                  <td>450 zł</td>
+                  <td>900 zł</td>
+                  <td>4000 zł</td>
+                </tr>
+                <tr className={styles.tableRow}>
+                  <td>Skanowanie Strukturalne <br />z Mapą Połysku i Mapą 3D</td>
+                  <td>650 zł</td>
+                  <td>750 zł</td>
+                  <td>1500 zł</td>
+                  <td>6000 zł</td>
+                </tr>
+              </tbody>
+            </table>
+            <p className={styles.sectionText} style={{ marginTop: '12px' }}>Deski, ceramika, tekstylia bądź inny trudny materiał: stawka x2</p>
+          </>
         )}
 
         {showSection === 2 && (
-          <table>
-            <tbody>
-              <tr className={styles.tableHeader}>
-                <td>Dostępne Opcje</td>
-                <td>A0</td>
-                <td>A1</td>
-                <td>A2</td>
-              </tr>
-              <tr className={styles.tableRow}>
-                <td>2D</td>
-                <td>500 zł</td>
-                <td>250 zł</td>
-                <td>150 zł</td>
-              </tr>
-              <tr className={styles.tableRow}>
-                <td>Strukturalny</td>
-                <td>4000 zł</td>
-                <td>2200 zł</td>
-                <td>1200 zł</td>
-              </tr>
-            </tbody>
-          </table>
+          <>
+            <table>
+              <tbody>
+                <tr className={styles.tableHeader}>
+                  <td>Dostępne Opcje</td>
+                  <td>A0</td>
+                  <td>A1</td>
+                  <td>A2</td>
+                </tr>
+                <tr className={styles.tableRow}>
+                  <td>2D</td>
+                  <td>500 zł</td>
+                  <td>250 zł</td>
+                  <td>150 zł</td>
+                </tr>
+                <tr className={styles.tableRow}>
+                  <td>Strukturalny</td>
+                  <td>4000 zł</td>
+                  <td>2200 zł</td>
+                  <td>1200 zł</td>
+                </tr>
+              </tbody>
+            </table>
+            <p className={styles.sectionText} style={{ marginTop: '12px' }}>Druk na papierze lub płótnie. Więcej informacji www.drukstrukturalny.pl</p>
+          </>
         )}
-
+        <p className={styles.sectionText} style={{ marginTop: "24px" }}>Chcesz zdigitalizować wiele różnych obiektów? Napisz do nas – pomożemy w wycenie Twojego projektu.</p>
       </div>
     </section>
   )
