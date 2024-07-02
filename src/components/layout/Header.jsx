@@ -3,10 +3,13 @@
 import goToSlide from "@/helpers/goToSlide"
 import styles from "@/sass/components/layout/header.module.scss"
 import Image from "next/image"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { useEffect, useRef, useState } from "react"
 
 export default function Header() {
     const [showSidebar, setShowSidebar] = useState(false)
+    const pathname = usePathname()
     let sliderRefLeftCol = useRef(null)
     let sliderRefRightCol = useRef(null)
 
@@ -23,7 +26,12 @@ export default function Header() {
                     <a href="https://skanowanie.pl" target="_blank">
                         <Image src="/logo.png" className={styles.logo} width={300} height={300}></Image>
                     </a>
-                    <span className={`icon ${styles.hamburgerMenu}`} onClick={() => setShowSidebar(!showSidebar)} />
+                    {
+                        pathname !== "/" ?
+                            <Link href="/" className={`icon ${styles.homeIcon}`} />
+                            :
+                            <span className={`icon ${styles.hamburgerMenu}`} onClick={() => setShowSidebar(!showSidebar)} />
+                    }
                 </div>
             </header>
         </>

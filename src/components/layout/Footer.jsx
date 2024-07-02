@@ -1,7 +1,16 @@
+"use client"
+
 import styles from "@/sass/components/layout/footer.module.scss"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 
 export default function Footer() {
+
+    // Get current url
+    const pathname = usePathname()
+
+    if (pathname !== "/") return null
+
     return (
         <footer className={styles.footer}>
             <div className="container">
